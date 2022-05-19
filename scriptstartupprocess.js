@@ -41,10 +41,8 @@ export async function main(ns) {
         return serversSeen;
     }
 
-    if (portsAvailable != 5) {
-        // If the player does not have all five port crackers
-        // Create another array that only contains the port crackers
-        // that the player currently has.
+    if (portsAvailable != 5)
+        // Creates another array that contains the port cracker that the player currently has.
         // Parts of this code is from:
         // https://www.reddit.com/r/Bitburner/comments/rpv9ps/comment/hq8aywx/?utm_source=share&utm_medium=web2x&context=3
         var availablePortOpeningTools = portOpeningTools.filter(
@@ -62,21 +60,8 @@ export async function main(ns) {
     }
     for (let i = 0; i < hostnames.length; i++) {
         // Iterates the server list to get info about the targeted server.
-        // Once that is done, target the server for rooting access.
-
-        // If a server *is not* rooted, check whether there
-        // is a need to crack ports, if the server does need to have
-        // its ports cracked, does the player have enough port
-        // crackers to root the server?
-        // If the player is able to root the server, are they at a level where 
-        // they are allowed to install a backdoor (assuming that they have BitNode-4)?
-        // Once that check is done, calculate the max amount of threads that a script
-        // can use on the targeted server before using ns.scp and ns.exec,
-        // if the server has 0 GB of RAM, bypass that process.
-
-        // If a server *is* rooted, check if the server is backdoored or not, 
-        // if not then install backdoor. 
-        // Once that check is done, do the same RAM check as before
+        // Once that is done, target the server for rooting access and script copying.
+        
         let serv = hostnames[i];
         let portsRequired = ns.getServerNumPortsRequired(serv);
         let serverLevel = ns.getServerSecurityLevel(serv);
