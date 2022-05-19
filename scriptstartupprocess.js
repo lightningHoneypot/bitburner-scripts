@@ -41,7 +41,7 @@ export async function main(ns) {
         return serversSeen;
     }
 
-    if (portsAvailable != 5)
+    if (portsAvailable != 5) {
         // Creates another array that contains the port cracker that the player currently has.
         // Parts of this code is from:
         // https://www.reddit.com/r/Bitburner/comments/rpv9ps/comment/hq8aywx/?utm_source=share&utm_medium=web2x&context=3
@@ -61,7 +61,6 @@ export async function main(ns) {
     for (let i = 0; i < hostnames.length; i++) {
         // Iterates the server list to get info about the targeted server.
         // Once that is done, target the server for rooting access and script copying.
-        
         let serv = hostnames[i];
         let portsRequired = ns.getServerNumPortsRequired(serv);
         let serverLevel = ns.getServerSecurityLevel(serv);
